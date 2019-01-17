@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "pritam89/multi-client",
+      "hostname": "client",
+      "essentials": false
+    },
+    {
+      "name": "server",
+      "image": "pritam89/multi-server",
+      "hostname": "api",
+      "essentials": false
+    },
+    {
+      "name": "worker",
+      "image": "pritam89/multi-worker",
+      "hostname": "worker",
+      "essentials": false
+    },
+    {
+      "name": "nginx",
+      "image": "pritam89/multi-nginx",
+      "hostname": "nginx",
+      "essentials": true,
+      "portMappings": [
+        {
+          "hostport": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
