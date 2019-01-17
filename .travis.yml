@@ -19,4 +19,4 @@ after_success:
   - docker push pritam89/multi-client
   - docker push pritam89/multi-nginx
   - docker push pritam89/multi-server
-  - docker push -t pritam89/multi-worker
+  - docker push pritam89/multi-worker
